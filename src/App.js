@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import TextSearch from './Banner/TextSearch';
+import Banner from './Banner/Banner';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <TextSearch
-      />
+      <Banner />
     );
   }
 }
