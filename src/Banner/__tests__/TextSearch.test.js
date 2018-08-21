@@ -3,12 +3,15 @@ import { shallow } from 'enzyme';
 
 import TextSearch from '../TextSearch';
 
+let mockOnSearchStringChange;
 let textSearch;
 
 beforeEach(() => {
+  mockOnSearchStringChange = jest.fn();
   textSearch = shallow(
     <TextSearch
       searchString="hot tub"
+      onSearchStringChange={mockOnSearchStringChange}
     />
   );
 });
@@ -29,7 +32,12 @@ test('the input box has the correct value', () => {
   expect(textSearch.find('form input').props().value).toBe('hot tub');
 });
 
-it('has a search button', () => {
-  expect(textSearch.find('form button').length).toBe(1);
-  expect(textSearch.find('form button').text()).toBe('Search');
+test('when the value of the input box changes, onSearchStringChange is called', () => {
+  expect(mockOnSearchStringChange.mock.calls.length).toBe(0);
+
+  textSearch.find('input').simulate('change', {target: {value: 'fireplace'}});
+
+  expect(mockOnSearchStringChange.mock.calls.length).toBe(1);
+  expect(mockOnSearchStringChange.mock.calls[0].length).toBe(1); //called with one parameter
+  expect(mockOnSearchStringChange.mock.calls[0][0]).toBe('fireplace');
 });
