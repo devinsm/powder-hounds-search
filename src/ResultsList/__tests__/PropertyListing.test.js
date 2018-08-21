@@ -28,17 +28,24 @@ it('has the description', () => {
 });
 
 it('has a list of attributes', () => {
-  expect(deepTracks1.find('ul.attributes').length).toBe(1);
+  expect(deepTracks1.find('dl.attributes').length).toBe(1);
 });
 
 test('the attributes are correct and in the correct order', () => {
-  let listItems = deepTracks1.find('ul.attributes').find('li');
-  expect(listItems.at(0).text()).toBe('Floor Area: 44 sqm');
-  expect(listItems.at(1).text()).toBe('Number of Bathrooms: 1');
-  expect(listItems.at(2).text()).toBe('Distance to Village Center: 182 m');
-  expect(listItems.at(3).text()).toBe('Distance to Ski Lifts: 179 m');
+  let listTerms = deepTracks1.find('dl.attributes').find('dt');
+  expect(listTerms.at(0).text()).toBe('Floor Area');
+  expect(listTerms.at(1).text()).toBe('Number of Bathrooms');
+  expect(listTerms.at(2).text()).toBe('Distance to Village Center');
+  expect(listTerms.at(3).text()).toBe('Distance to Ski Lifts');
+  expect(listTerms.at(4).text()).toBe('Amenities');
 
-  let amenitiesList = listItems.at(4).find('ul');
+  let listDefinitions = deepTracks1.find('dl.attributes').find('dd');
+  expect(listDefinitions.at(0).text()).toBe('44 sqm');
+  expect(listDefinitions.at(1).text()).toBe('1');
+  expect(listDefinitions.at(2).text()).toBe('182 m');
+  expect(listDefinitions.at(3).text()).toBe('179 m');
+
+  let amenitiesList = listDefinitions.at(4).find('ul');
   let amenitiesItems = amenitiesList.find('li');
 
   expect(amenitiesList.length).toBe(1);

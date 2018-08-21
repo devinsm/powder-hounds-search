@@ -1,0 +1,12 @@
+ul.attributes {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.PropertyListing {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 20px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './PropertyListing.css';
 
 export default class PropertyListing extends Component {
   render() {
@@ -29,13 +30,20 @@ export default class PropertyListing extends Component {
     }
 
     let attributes = [
-      <li key={'floorArea'}>{'Floor Area: ' + property.floorArea + ' sqm'}</li>,
-      <li key={'bathrooms'}>{'Number of Bathrooms: ' + property.bathrooms}</li>,
-      <li key={'villageDistance'}>{'Distance to Village Center: ' + property.villageCentreDistanceId + ' m'}</li>,
-      <li key={'liftsDistance'}>{'Distance to Ski Lifts: ' + property.liftDistanceId + ' m'}</li>
+      <dt key={'floorAreaTerm'}>Floor Area</dt>,
+      <dd key={'floorAreaNum'}>{property.floorArea + ' sqm'}</dd>,
+      <dt key={'bathroomsTerm'}>Number of Bathrooms</dt>,
+      <dd key={'bathroomsNum'}>{property.bathrooms}</dd>,
+      <dt key={'villageDistanceTerm'}>Distance to Village Center</dt>,
+      <dd key={'villageDistanceNum'}>{property.villageCentreDistanceId + ' m'}</dd>,
+      <dt key={'liftsDistanceTerm'}>Distance to Ski Lifts</dt>,
+      <dd key={'liftsDistanceNum'}>{property.liftDistanceId + ' m'}</dd>
     ];
     if(amenities.length > 0) {
-      attributes.push(<li key={'amenities'}><ul>{amenities}</ul></li>)
+      attributes.push(
+        <dt key={'amenitiesTerm'}>Amenities</dt>,
+        <dd key={'amenitiesList'}><ul>{amenities}</ul></dd>
+      );
     }
 
     return (
@@ -49,9 +57,9 @@ export default class PropertyListing extends Component {
               </p>
             </div>
             <div className="col-12 col-md-6">
-              <ul className="attributes">
+              <dl className="attributes">
                 {attributes}
-              </ul>
+              </dl>
             </div>
           </div>
         </div>
