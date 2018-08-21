@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import './TextSearch.css';
 
@@ -14,6 +14,7 @@ export default class TextSearch extends Component {
           <input
             type="text"
             placeholder="Search..."
+            value={this.props.searchString}
             className="form-control"
             id="propertySearchBox"
           />
@@ -26,4 +27,6 @@ export default class TextSearch extends Component {
   }
 }
 
-TextSearch.propTypes = {};
+TextSearch.propTypes = {
+  searchString: PropTypes.string.isRequired
+};

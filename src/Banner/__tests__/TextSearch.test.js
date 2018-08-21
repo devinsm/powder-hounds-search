@@ -6,11 +6,11 @@ import TextSearch from '../TextSearch';
 let textSearch;
 
 beforeEach(() => {
-  textSearch = shallow(<TextSearch />);
-});
-
-it('renders without crashing', () => {
-  shallow(<TextSearch />);
+  textSearch = shallow(
+    <TextSearch
+      searchString="hot tub"
+    />
+  );
 });
 
 it('has a form element', () => {
@@ -23,6 +23,10 @@ it('has an input box inside the form', () => {
 
 test('the input box has the correct placeholder', () => {
   expect(textSearch.find('form input').props().placeholder).toBe('Search...');
+});
+
+test('the input box has the correct value', () => {
+  expect(textSearch.find('form input').props().value).toBe('hot tub');
 });
 
 it('has a search button', () => {

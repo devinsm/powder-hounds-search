@@ -6,12 +6,10 @@ import Banner from '../Banner';
 let banner;
 beforeEach(() => {
   banner = shallow(
-    <Banner />
+    <Banner
+      searchString="2 bedroom"
+    />
   );
-});
-
-it('renders without crashing', () => {
-  shallow(<Banner />);
 });
 
 it('has the correct heading', () => {
@@ -21,4 +19,8 @@ it('has the correct heading', () => {
 
 it('has a text search component', () => {
   expect(banner.find('TextSearch').length).toBe(1);
+});
+
+test('the text search component has the correct search string', () => {
+  expect(banner.find('TextSearch').props().searchString).toBe('2 bedroom');
 });

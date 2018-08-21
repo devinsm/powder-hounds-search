@@ -22,7 +22,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Banner />
+        <Banner
+          searchString={this.state.searchString}
+        />
         <ResultsList
           properties={properties}
           searchString={this.state.searchString}
