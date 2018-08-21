@@ -10,3 +10,8 @@ ul.attributes {
   padding: 5px;
   margin: 10px 20px;
 }
+
+.attributes {
+  display: inline-block;
+  text-align: left;
+}

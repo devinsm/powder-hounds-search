@@ -56,7 +56,7 @@ export default class PropertyListing extends Component {
                 {property.description}
               </p>
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6 text-md-right">
               <dl className="attributes">
                 {attributes}
               </dl>
