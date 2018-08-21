@@ -11,7 +11,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state =({
-      searchString: 'suite'
+      searchString: ''
+    });
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  /**
+   * Handles a change to the search string's value.
+   * @param value The new value of the search string.
+  */
+  handleChange(value) {
+    this.setState({
+      searchString: value
     });
   }
 
@@ -24,6 +35,7 @@ class App extends Component {
         <Header />
         <Banner
           searchString={this.state.searchString}
+          onSearchStringChange={this.handleChange}
         />
         <ResultsList
           properties={properties}
