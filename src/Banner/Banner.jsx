@@ -6,12 +6,22 @@ import TextSearch from './TextSearch';
 import './Banner.css';
 
 export default class Banner extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(newValue) {
+    this.props.onSearchStringChange(newValue);
+  }
+
   render() {
     return (
       <section className="Banner">
         <h2>Find your perfect Niseko vacation property today!</h2>
         <TextSearch
           searchString={this.props.searchString}
+          onSearchStringChange={this.handleChange}
         />
       </section>
     );
@@ -19,5 +29,6 @@ export default class Banner extends Component {
 }
 
 Banner.propTypes = {
-  searchString: PropTypes.string.isRequired
+  searchString: PropTypes.string.isRequired,
+  onSearchStringChange: PropTypes.func.isRequired
 }
