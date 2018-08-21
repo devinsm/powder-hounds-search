@@ -4,9 +4,24 @@ import PropTypes from 'prop-types';
 import PropertyListing from './PropertyListing';
 
 export default class ResultsList extends Component {
+
+  getFilteredProperties() {
+    let searchStringTrimmed = this.props.searchString.trim();
+    if(!searchStringTrimmed) {
+      return this.props.properties;
+    }
+
+    let caseInsensitiveRegex = new RegExp(searchStringTrimmed, 'i');
+
+    return this.props.properties.filter(property => {
+      return caseInsensitiveRegex.test(property.name) ||
+             caseInsensitiveRegex.test(property.description);
+    });
+  }
+
   render() {
     let propertiesJSX = [];
-    for(let property of this.props.properties) {
+    for(let property of this.getFilteredProperties()) {
       propertiesJSX.push(<PropertyListing property={property} key={property.id} />);
     }
 
@@ -37,5 +52,6 @@ ResultsList.propTypes = {
       nespresso: PropTypes.bool
     }).isRequired,
     floorArea: PropTypes.number.isRequired
-  })).isRequired
+  })).isRequired,
+  searchString: PropTypes.string.isRequired
 }

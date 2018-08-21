@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import ResultsList from '../ResultsList';
 
-import PropertiesJSON from '../../properties.js';
+import PropertiesJSON from '../../test-properties.js';
 
 const properties = JSON.parse(PropertiesJSON);
 
@@ -12,12 +12,13 @@ beforeEach(() => {
   allProperties = shallow(
     <ResultsList
       properties={properties}
+      searchString=""
     />
   );
 });
 
-it('has five property listings', () => {
-  expect(allProperties.find('PropertyListing').length).toBe(5);
+it('has six property listings', () => {
+  expect(allProperties.find('PropertyListing').length).toBe(6);
 });
 
 /**
@@ -39,8 +40,75 @@ function propertyIsInList(property, list) {
   expect(isPresent).toBe(true);
 }
 
-it('all five properties are present', () => {
+it('all six properties are present', () => {
   for(let property of properties) {
     propertyIsInList(property, allProperties);
+  }
+});
+
+it('filters correctly when the search string is bedroom', () => {
+  let bedroomProperties = shallow(
+    <ResultsList
+      properties={properties}
+      searchString="bedroom"
+    />
+  );
+
+  expect(bedroomProperties.find('PropertyListing').length).toBe(6);
+  for(let property of properties) {
+    propertyIsInList(property, bedroomProperties);
+  }
+});
+
+it('filters correctly when the search string is powder', () => {
+  let powderProperties = shallow(
+    <ResultsList
+      properties={properties}
+      searchString="powder"
+    />
+  );
+
+  expect(powderProperties.find('PropertyListing').length).toBe(3);
+  for(let property of [properties[0], properties[2], properties[5]]) {
+    propertyIsInList(property, powderProperties);
+  }
+});
+
+it('filters correctly when the search string is monkey', () => {
+  let monkeyProperties = shallow(
+    <ResultsList
+      properties={properties}
+      searchString="monkey"
+    />
+  );
+
+  expect(monkeyProperties.find('PropertyListing').length).toBe(0);
+});
+
+it('filters correctly when the search string has trailing/leading white space', () => {
+  let powderProperties = shallow(
+    <ResultsList
+      properties={properties}
+      searchString="   powder       "
+    />
+  );
+
+  expect(powderProperties.find('PropertyListing').length).toBe(3);
+  for(let property of [properties[0], properties[2], properties[5]]) {
+    propertyIsInList(property, powderProperties);
+  }
+});
+
+it('filters in a case insensitive maner', () => {
+  let powderProperties = shallow(
+    <ResultsList
+      properties={properties}
+      searchString="pOWdEr"
+    />
+  );
+
+  expect(powderProperties.find('PropertyListing').length).toBe(3);
+  for(let property of [properties[0], properties[2], properties[5]]) {
+    propertyIsInList(property, powderProperties);
   }
 });
