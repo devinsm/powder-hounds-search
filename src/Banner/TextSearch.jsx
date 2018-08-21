@@ -7,15 +7,24 @@ export default class TextSearch extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     let value = event.target.value.trim();
     this.props.onSearchStringChange(value);
   }
+
+  /**
+   * Prevents the submit event from causing a page reload.
+  */
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
-      <form className="TextSearch">
+      <form className="TextSearch" onSubmit={this.handleSubmit}>
         <label htmlFor="propertySearchBox">
           What are you looking for?
         </label>

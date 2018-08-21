@@ -41,3 +41,14 @@ test('when the value of the input box changes, onSearchStringChange is called', 
   expect(mockOnSearchStringChange.mock.calls[0].length).toBe(1); //called with one argument
   expect(mockOnSearchStringChange.mock.calls[0][0]).toBe('fireplace');
 });
+
+it('stops the submit event', () => {
+  let mockPreventDefault = jest.fn();
+
+  expect(mockPreventDefault.mock.calls.length).toBe(0);
+
+  textSearch.find('form').simulate('submit', {preventDefault: mockPreventDefault});
+
+  expect(mockPreventDefault.mock.calls.length).toBe(1);
+  expect(mockPreventDefault.mock.calls[0].length).toBe(0);
+});

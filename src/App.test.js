@@ -34,3 +34,10 @@ it('changes the searchString props when the value changes', () => {
   expect(bannerProps().searchString).toBe('1 bed');
   expect(resultsListProps().searchString).toBe('1 bed');
 });
+
+it('has a header, banner, and the results in that order', () => {
+  let children = app.children();
+  expect(children.at(0).is('Header'));
+  expect(children.at(1).is('Banner'));
+  expect(children.at(2).is('ResultsList'));
+});
