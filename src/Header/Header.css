@@ -1,0 +1,21 @@
+.Contact {
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+}
+
+.Logo {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .Contact {
+    margin-top: 50px !important;
+    margin-right: 20px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .Logo {
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+}
