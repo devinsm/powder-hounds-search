@@ -3,6 +3,20 @@ import PropTypes from 'prop-types';
 import './PropertyListing.css';
 
 export default class PropertyListing extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showAmenities: false
+    }
+    this.toggleAmenites = this.toggleAmenites.bind(this);
+  }
+
+  toggleAmenites(clickEvent) {
+    clickEvent.preventDefault();
+    this.setState(prevState => {
+      return { showAmenities: !prevState.showAmenities }
+    });
+  }
   render() {
     let property = this.props.property;
 
@@ -41,7 +55,17 @@ export default class PropertyListing extends Component {
     ];
     if(amenities.length > 0) {
       attributes.push(
-        <dt key={'amenitiesTerm'}>Amenities</dt>,
+        <dt key={'amenitiesTerm'}>
+          <span className="amenities">Modern Amenities </span>
+          <a className="showHide" onClick={this.toggleAmenites}>({
+            this.state.showAmenities ? 'hide' : 'show'
+          })</a>
+        </dt>
+      );
+    }
+
+    if(this.state.showAmenities) {
+      attributes.push(
         <dd key={'amenitiesList'}><ul>{amenities}</ul></dd>
       );
     }

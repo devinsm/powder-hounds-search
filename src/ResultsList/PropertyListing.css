@@ -15,3 +15,16 @@ ul.attributes {
   display: inline-block;
   text-align: left;
 }
+
+a.showHide {
+  color: grey;
+}
+
+a.showHide:hover {
+  color: #5b5b5b !important;
+  cursor: pointer;
+}
+
+a.showHide:active {
+  color: black !important;
+}
