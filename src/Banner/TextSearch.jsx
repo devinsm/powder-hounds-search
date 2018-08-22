@@ -23,7 +23,7 @@ export default class TextSearch extends Component {
 
   render() {
     return (
-      <form className="TextSearch" onSubmit={this.handleSubmit}>
+      <form className="TextSearch form-group" onSubmit={this.handleSubmit}>
         <label htmlFor="propertySearchBox">
           What are you looking for?
         </label>
