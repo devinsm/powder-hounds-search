@@ -11,8 +11,7 @@ export default class TextSearch extends Component {
   }
 
   handleChange(event) {
-    let value = event.target.value.trim();
-    this.props.onSearchStringChange(value);
+    this.props.onSearchStringChange(event.target.value);
   }
 
   /**
