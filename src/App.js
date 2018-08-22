@@ -26,9 +26,6 @@ class App extends Component {
     });
   }
 
-  getFilteredProperties() {
-    return [];
-  }
   render() {
     return (
       <div className="App">
