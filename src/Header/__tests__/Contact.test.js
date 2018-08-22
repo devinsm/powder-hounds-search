@@ -11,7 +11,7 @@ it('renders without crashing', () => {
 
 it('has the correct email address in anchor tag', () => {
   expect(contact.find('a').length).toBe(1);
-  expect(contact.find('a').props().href).toBe('mailto:notArealAddress@kiniseko.com');//don't want to put reall address in this app
+  expect(contact.find('a').props().href).toBe('mailto:stay@kiniseko.com');
   expect(contact.find('a').text()).toBe('stay@kiniseko.com');
 });
 

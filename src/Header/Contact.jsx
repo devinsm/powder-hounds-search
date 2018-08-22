@@ -8,7 +8,7 @@ export default class Contact extends Component {
       <ul className="Contact">
         <li>
           <i className="far fa-envelope"></i>
-          <a href="mailto:notArealAddress@kiniseko.com">stay@kiniseko.com</a>
+          <a href="mailto:stay@kiniseko.com">stay@kiniseko.com</a>
         </li>
         <li>
           <i className="fa fa-phone"></i>
