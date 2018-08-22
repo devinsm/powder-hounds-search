@@ -112,3 +112,14 @@ it('filters in a case insensitive maner', () => {
     propertyIsInList(property, powderProperties);
   }
 });
+
+it('escapes regex special characters', () => {
+  let starProperties = shallow(
+    <ResultsList
+      properties={properties}
+      searchString='p*'
+    />
+  );
+
+  expect(starProperties.find('PropertyListing').length).toBe(0);
+});

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import escapeRegExp from 'lodash.escaperegexp';
 
 import PropertyListing from './PropertyListing';
 
 export default class ResultsList extends Component {
 
   getFilteredProperties() {
-    let searchStringTrimmed = this.props.searchString.trim();
-    if(!searchStringTrimmed) {
+    let sanitizedSearchString = this.props.searchString.trim();
+    sanitizedSearchString = escapeRegExp(sanitizedSearchString);
+
+    if(!sanitizedSearchString) {
       return this.props.properties;
     }
 
-    let caseInsensitiveRegex = new RegExp(searchStringTrimmed, 'i');
+    let caseInsensitiveRegex = new RegExp(sanitizedSearchString, 'i');
 
     return this.props.properties.filter(property => {
       return caseInsensitiveRegex.test(property.name) ||
