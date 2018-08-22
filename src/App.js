@@ -4,7 +4,7 @@ import Banner from './Banner/Banner';
 import ResultsList from './ResultsList/ResultsList';
 import './App.css';
 
-import PropertiesJSON from './test-properties.js';
+import PropertiesJSON from './properties.js';
 const properties = JSON.parse(PropertiesJSON);
 
 class App extends Component {
