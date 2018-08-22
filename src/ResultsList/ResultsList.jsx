@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import escapeRegExp from 'lodash.escaperegexp';
 
 import PropertyListing from './PropertyListing';
+import './ResultsList.css';
 
 export default class ResultsList extends Component {
 
@@ -32,7 +33,7 @@ export default class ResultsList extends Component {
       propertiesJSX.push(
         <p
           key={'error'}
-          className="text-center mt-2"
+          className="noResultsError"
         >
           There are no properties matching your search.
         </p>)

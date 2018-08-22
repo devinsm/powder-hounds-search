@@ -133,6 +133,6 @@ it('Shows error message when there are no matches', () => {
   );
 
   expect(monkeyProperties.find('PropertyListing').length).toBe(0);
-  expect(monkeyProperties.find('p').length).toBe(1);
-  expect(monkeyProperties.find('p').text()).toBe('There are no properties matching your search.');
+  expect(monkeyProperties.find('.noResultsError').length).toBe(1);
+  expect(monkeyProperties.find('.noResultsError').text()).toBe('There are no properties matching your search.');
 });
