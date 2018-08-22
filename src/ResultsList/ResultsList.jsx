@@ -28,6 +28,16 @@ export default class ResultsList extends Component {
       propertiesJSX.push(<PropertyListing property={property} key={property.id} />);
     }
 
+    if(propertiesJSX.length === 0) {
+      propertiesJSX.push(
+        <p
+          key={'error'}
+          className="text-center mt-2"
+        >
+          There are no properties matching your search.
+        </p>)
+    }
+
     return (
       <div className="ResultsList container">
         {propertiesJSX}

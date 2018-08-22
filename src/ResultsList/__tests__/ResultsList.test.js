@@ -114,12 +114,25 @@ it('filters in a case insensitive maner', () => {
 });
 
 it('escapes regex special characters', () => {
-  let starProperties = shallow(
+  let pStarProperties = shallow(
     <ResultsList
       properties={properties}
       searchString='p*'
     />
   );
 
-  expect(starProperties.find('PropertyListing').length).toBe(0);
+  expect(pStarProperties.find('PropertyListing').length).toBe(0);
+});
+
+it('Shows error message when there are no matches', () => {
+  let monkeyProperties = shallow(
+    <ResultsList
+      properties={properties}
+      searchString='monkey'
+    />
+  );
+
+  expect(monkeyProperties.find('PropertyListing').length).toBe(0);
+  expect(monkeyProperties.find('p').length).toBe(1);
+  expect(monkeyProperties.find('p').text()).toBe('There are no properties matching your search.');
 });
