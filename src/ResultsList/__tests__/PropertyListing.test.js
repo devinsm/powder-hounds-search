@@ -55,7 +55,7 @@ test('the attributes are correct and in the correct order', () => {
   expect(amenitiesItems.at(3).text()).toBe('Nespresso Machine');
 });
 
-fit('displays all amenities when they are all present', () => {
+it('displays all amenities when they are all present', () => {
   let theWorks = shallow(
     <PropertyListing
       property={properties[5]}
@@ -76,4 +76,18 @@ fit('displays all amenities when they are all present', () => {
   expect(amenitiesItems.at(6).text()).toBe('HD TV');
   expect(amenitiesItems.at(7).text()).toBe('Jacuzzi');
   expect(amenitiesItems.at(8).text()).toBe('Nespresso Machine');
+});
+
+it('displays no amenities when none are present', () => {
+  let chaletA = shallow(
+    <PropertyListing
+      property={properties[1]}
+    />
+  );
+
+  let listTerms = chaletA.find('dl.attributes').find('dt');
+  let listDefinitions = chaletA.find('dl.attributes').find('dd');
+
+  expect(listTerms.length).toBe(4);
+  expect(listDefinitions.length).toBe(4);
 });
