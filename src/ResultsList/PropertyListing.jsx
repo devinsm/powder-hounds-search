@@ -8,7 +8,7 @@ export default class PropertyListing extends Component {
 
     let amenities = [];
     const mapOfAmenityNames = {
-      aricon: 'Air Conditioning',
+      aircon: 'Air Conditioning',
       appletv: 'Apple TV',
       btspeakers: 'Bluetooth Speakers',
       cardkey: 'Card Key Access',

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import PropertyListing from '../PropertyListing';
 
-import PropertiesJSON from '../../properties.js';
+import PropertiesJSON from '../../test-properties.js';
 
 const properties = JSON.parse(PropertiesJSON);
 
@@ -53,4 +53,27 @@ test('the attributes are correct and in the correct order', () => {
   expect(amenitiesItems.at(1).text()).toBe('Bluetooth Speakers');
   expect(amenitiesItems.at(2).text()).toBe('Card Key Access');
   expect(amenitiesItems.at(3).text()).toBe('Nespresso Machine');
+});
+
+fit('displays all amenities when they are all present', () => {
+  let theWorks = shallow(
+    <PropertyListing
+      property={properties[5]}
+    />
+  );
+
+  let listDefinitions = theWorks.find('dl.attributes').find('dd');
+  let amenitiesList = listDefinitions.at(4).find('ul');
+  let amenitiesItems = amenitiesList.find('li');
+
+  expect(amenitiesList.length).toBe(1);
+  expect(amenitiesItems.at(0).text()).toBe('Air Conditioning');
+  expect(amenitiesItems.at(1).text()).toBe('Apple TV');
+  expect(amenitiesItems.at(2).text()).toBe('Bluetooth Speakers');
+  expect(amenitiesItems.at(3).text()).toBe('Card Key Access');
+  expect(amenitiesItems.at(4).text()).toBe('Chromecast');
+  expect(amenitiesItems.at(5).text()).toBe('Fireplace');
+  expect(amenitiesItems.at(6).text()).toBe('HD TV');
+  expect(amenitiesItems.at(7).text()).toBe('Jacuzzi');
+  expect(amenitiesItems.at(8).text()).toBe('Nespresso Machine');
 });
