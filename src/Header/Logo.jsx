@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import powderHoundsLogo from '../Powder_Hounds.svg';
 
 export default class Logo extends Component {
   render() {
@@ -7,7 +8,7 @@ export default class Logo extends Component {
         className="Logo"
         width="139"
         height="124"
-        src="https://www.kiniseko.com/assets/img/logo@2x.png"
+        src={powderHoundsLogo}
         alt="Ki Niseko logo"
       />
     )
