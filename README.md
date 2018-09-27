@@ -29,7 +29,7 @@ The only thing they gave me to start with was a JSON file with information about
 some of their rental units. Everything else I made myself. Though I got an offer,
 I got cold feet and decided moving half way around the world was not for me :)
 
-Some things to note about the project:
+## Some Things to Note
 - The search is case insensitive, and ignores trailing and leading whitespace.
 I made the decision to make the search this way, because I felt it would better
 match user expectations. For instance, all of the following will match '1 bedroom':
