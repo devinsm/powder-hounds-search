@@ -1,5 +1,7 @@
 # Powder Hounds Property Search
 
+[![Build Status](https://travis-ci.com/devinsm/htm-property-search.svg?token=2SsqxwGeje9ofPzWHxo7&branch=master)](https://travis-ci.com/devinsm/htm-property-search) [![Coverage Status](https://coveralls.io/repos/github/devinsm/htm-property-search/badge.svg?branch=master&t=Qej9jB)](https://coveralls.io/github/devinsm/htm-property-search?branch=master)
+
 This simple website allows users to search through the rental properties of a
 fictitious company called "Powder Hound Realty".
 
