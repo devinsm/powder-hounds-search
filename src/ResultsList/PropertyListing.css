@@ -17,7 +17,7 @@ ul.attributes {
 }
 
 a.showHide {
-  color: grey;
+  color: grey !important;
 }
 
 a.showHide:hover {
