@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/devinsm/htm-property-search.svg?token=2SsqxwGeje9ofPzWHxo7&branch=master)](https://travis-ci.com/devinsm/htm-property-search) [![Coverage Status](https://coveralls.io/repos/github/devinsm/htm-property-search/badge.svg?branch=master&t=Qej9jB)](https://coveralls.io/github/devinsm/htm-property-search?branch=master)
 
 This simple website allows users to search through the rental properties of a
-fictitious company called "Powder Hound Realty".
+fictitious company called "Powder Hounds Realty".
 
 I made the first version of this project while interviewing with a hotel/rental property company
 located overseas. As part of their skills assessment, they gave me the following challenge:
@@ -30,7 +30,7 @@ some of their rental units. Everything else I made myself. Though I got an offer
 I got cold feet and decided moving half way around the world was not for me :)
 
 Some things to note about the project:
-- The search is case insensitive, and ignores trailing or leading whitespace.
+- The search is case insensitive, and ignores trailing and leading whitespace.
 I made the decision to make the search this way, because I felt it would better
 match user expectations. For instance, all of the following will match '1 bedroom':
   - '1 bedroom'
