@@ -18,7 +18,7 @@ export default class Banner extends Component {
   render() {
     return (
       <section className="Banner">
-        <h2>Find your perfect Niseko vacation property today!</h2>
+        <h2>Find your perfect ski vacation property today!</h2>
         <TextSearch
           searchString={this.props.searchString}
           onSearchStringChange={this.handleChange}
