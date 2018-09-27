@@ -17,7 +17,7 @@ beforeEach(() => {
 
 it('has the correct heading', () => {
   expect(banner.find('h2').length).toBe(1);
-  expect(banner.find('h2').text()).toBe('Find your perfect Niseko vacation property today!');
+  expect(banner.find('h2').text()).toBe('Find your perfect ski vacation property today!');
 });
 
 it('has a text search component', () => {

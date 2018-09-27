@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import PropertyListing from '../PropertyListing';
 
-import PropertiesJSON from '../../test-properties.js';
+import PropertiesJSON from '../../properties.js';
 
 const properties = JSON.parse(PropertiesJSON);
 
