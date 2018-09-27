@@ -16,13 +16,13 @@ beforeEach(() => {
 
 it('has the name in a heading', () => {
   expect(deepTracks1.find('h3').length).toBe(1);
-  expect(deepTracks1.find('h3').text()).toBe('Deep Tracks 1');
+  expect(deepTracks1.find('h3').text()).toBe('Deep Tracks');
 });
 
 it('has the description', () => {
   expect(deepTracks1.find('p.description').length).toBe(1);
   expect(deepTracks1.find('p.description').text())
-  .toBe('Located just 200 m from the Hirafu Gondola, this 1 bedroom apartment is ideal for those seeking fresh tracks.');
+  .toBe('Located just 200 m from the slopes, this 1 bedroom apartment is ideal for those seeking fresh tracks.');
 });
 
 it('has a list of attributes', () => {

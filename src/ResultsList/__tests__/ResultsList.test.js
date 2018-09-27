@@ -38,13 +38,13 @@ function propertyIsInList(property, list) {
   expect(isPresent).toBe(true);
 }
 
-it('all six properties are present', () => {
+it('displays all six properties when the search string is empty', () => {
   for(let property of properties) {
     propertyIsInList(property, allProperties);
   }
 });
 
-it('filters correctly when the search string is bedroom', () => {
+it('filters correctly when the search string is present in all properties', () => {
   let bedroomProperties = shallow(
     <ResultsList
       properties={properties}
@@ -58,7 +58,7 @@ it('filters correctly when the search string is bedroom', () => {
   }
 });
 
-it('filters correctly when the search string is powder', () => {
+it('filters correctly when the search string is present in some, but not all, properties', () => {
   let powderProperties = shallow(
     <ResultsList
       properties={properties}
@@ -72,7 +72,7 @@ it('filters correctly when the search string is powder', () => {
   }
 });
 
-it('filters correctly when the search string is monkey', () => {
+it('filters correctly when the search string is not present in any property', () => {
   let monkeyProperties = shallow(
     <ResultsList
       properties={properties}
