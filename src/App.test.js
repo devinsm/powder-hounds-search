@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 
 import App from './App';
+import properties from './properties.json';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -11,14 +12,15 @@ it('renders without crashing', () => {
 });
 
 let app;
+let bannerProps;
+let resultsListProps;
 beforeEach(() => {
   app = shallow(<App />);
+  bannerProps = () => app.find('Banner').props();
+  resultsListProps = () => app.find('ResultsList').props();
 });
 
 it('changes the searchString props when the value changes', () => {
-  let bannerProps = () => app.find('Banner').props();
-  let resultsListProps = () => app.find('ResultsList').props();
-
   bannerProps().onSearchStringChange('small');
   app.update();
 
@@ -37,4 +39,14 @@ it('has a header, banner, and the results in that order', () => {
   expect(children.at(0).is('Header'));
   expect(children.at(1).is('Banner'));
   expect(children.at(2).is('ResultsList'));
+});
+
+it('passes the rental property info into the results list via props', () => {
+  //before search
+  expect(resultsListProps().properties).toEqual(properties);
+
+  //after search
+  bannerProps().onSearchStringChange('small');
+  app.update();
+  expect(resultsListProps().properties).toEqual(properties);
 });

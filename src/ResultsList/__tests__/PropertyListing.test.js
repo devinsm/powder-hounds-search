@@ -86,6 +86,7 @@ function assertCorrectWithAmenities() {
   let amenitiesItems = amenitiesList.find('li');
 
   expect(amenitiesList.length).toBe(1);
+  expect(amenitiesItems.length).toBe(4);
   expect(amenitiesItems.at(0).text()).toBe('Apple TV');
   expect(amenitiesItems.at(1).text()).toBe('Bluetooth Speakers');
   expect(amenitiesItems.at(2).text()).toBe('Card Key Access');
@@ -156,6 +157,7 @@ it('displays all amenities when they are all present', () => {
   let amenitiesItems = amenitiesList.find('li');
 
   expect(amenitiesList.length).toBe(1);
+  expect(amenitiesItems.length).toBe(9);
   expect(amenitiesItems.at(0).text()).toBe('Air Conditioning');
   expect(amenitiesItems.at(1).text()).toBe('Apple TV');
   expect(amenitiesItems.at(2).text()).toBe('Bluetooth Speakers');
