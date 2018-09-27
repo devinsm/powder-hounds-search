@@ -1,4 +1,3 @@
-export default `
 [
   {
     "id": 0,
@@ -121,4 +120,3 @@ export default `
     "floorArea":44
   }
 ]
-`

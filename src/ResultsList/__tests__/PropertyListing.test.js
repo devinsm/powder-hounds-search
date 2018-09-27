@@ -3,9 +3,7 @@ import { shallow } from 'enzyme';
 
 import PropertyListing from '../PropertyListing';
 
-import PropertiesJSON from '../../properties.js';
-
-const properties = JSON.parse(PropertiesJSON);
+import properties from '../../properties.json';
 
 let deepTracks1;
 beforeEach(() => {

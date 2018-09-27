@@ -3,9 +3,7 @@ import { shallow } from 'enzyme';
 
 import ResultsList from '../ResultsList';
 
-import PropertiesJSON from '../../properties.js';
-
-const properties = JSON.parse(PropertiesJSON);
+import properties from '../../properties.json';
 
 let allProperties;
 beforeEach(() => {
